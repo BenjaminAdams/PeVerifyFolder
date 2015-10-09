@@ -61,12 +61,12 @@ namespace PeverifyFolder
 
             string stdOut, stdErr;
             //result.ExitCode = StartAndWaitForResult(PeVerifyPath, assemblyName + " /UNIQUE /IL /NOLOGO", out stdOut, out stdErr);
-            //result.ExitCode = StartAndWaitForResult(PeVerifyPath, assemblyName, out stdOut, out stdErr);
             result.ExitCode = StartAndWaitForResult(PeVerifyPath, assemblyName + " /IL /NOLOGO", out stdOut, out stdErr);
 
             if (stdOut.Contains("The assembly is built by a runtime newer than the currently loaded runtime"))
             {
-                //
+                Console.WriteLine("********* You should use a higher .NET version of PeVerify.exe");
+                Console.ReadLine();
             }
             ParseErrors(result, stdOut);
 

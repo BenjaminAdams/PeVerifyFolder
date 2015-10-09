@@ -66,6 +66,8 @@ namespace PeverifyFolder
                 output.AppendLine("Failed checking file");
                 Console.WriteLine("FAILED: file '{0}'.", path);
             }
+
+            output.AppendLine();
         }
 
         public static void listToString(List<string> lst, StringBuilder output)

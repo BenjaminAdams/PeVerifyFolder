@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 using System.Text;
@@ -8,7 +9,9 @@ namespace PeverifyFolder
 {
     internal class Program
     {
-        private static string _binDirectoryPath = @"C:\Users\benjamin_c_adams\Downloads\Api\Api\bin";
+        //private static string _binDirectoryPath = @"C:\Users\benjamin_c_adams\Downloads\Api\Api\bin";
+        private static string _binDirectoryPath = @"C:\Users\benjamin_c_adams\Documents\GitHub\Swashbuckle-blue\Swashbuckle.Core\bin\Debug";
+
         private static string csvResultsPath = @"results.txt";
 
         public static void Main(string[] args)
@@ -17,6 +20,7 @@ namespace PeverifyFolder
             ProcessDirectory(_binDirectoryPath, output);
 
             File.WriteAllText(csvResultsPath, output.ToString());
+            Process.Start("notepad.exe", csvResultsPath);
         }
 
         // Process all files in the directory passed in, recurse on any directories
